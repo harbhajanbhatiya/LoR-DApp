@@ -1,43 +1,53 @@
 # Letter of Recommendation (LoR) DApp
 
-A decentralized application built on Ethereum that enables student registration, recommendation requests, faculty authorization, and recommendation approval through smart contracts.
+A blockchain-based decentralized application (DApp) for managing academic Letters of Recommendation using Ethereum smart contracts.
+
+The application enables student registration, recommendation requests, faculty authorization, recommendation approval, and transparent verification of student recommendation status.
 
 ## Project Overview
 
-The Letter of Recommendation DApp uses blockchain technology to provide a transparent and verifiable recommendation management system.
+The Letter of Recommendation DApp is developed using Solidity, Hardhat, React.js, and ethers.js.
 
-The application connects a React frontend with an Ethereum smart contract deployed on the Sepolia Testnet.
+It uses the Ethereum Sepolia Testnet to provide a decentralized and transparent recommendation management system.
 
 ## Technology Stack
 
-* Solidity – Smart Contract Development
-* Hardhat – Development and Testing
-* Ethereum Sepolia – Blockchain Network
-* Infura – Blockchain RPC Provider
-* React.js – Frontend
-* Vite – Frontend Build Tool
-* ethers.js – Blockchain Integration
-* MetaMask – Wallet Connection
-* Bootstrap and CSS – UI Styling
+| Technology       | Purpose                            |
+| ---------------- | ---------------------------------- |
+| Solidity         | Smart Contract Development         |
+| Hardhat          | Blockchain Development and Testing |
+| Ethereum Sepolia | Blockchain Network                 |
+| Infura           | RPC Provider                       |
+| React.js         | Frontend Development               |
+| Vite             | Frontend Build Tool                |
+| ethers.js        | Blockchain Integration             |
+| MetaMask         | Wallet Authentication              |
+| Bootstrap        | UI Components                      |
+| CSS              | Frontend Styling                   |
+| Git & GitHub     | Version Control                    |
 
 ## Features
 
-* Add student details.
-* Request letters of recommendation.
+* Add and register student details.
+* Request a Letter of Recommendation using Student ID.
 * Approve recommendation requests through authorized faculty.
-* Authorize and deauthorize faculty wallets.
-* Retrieve student details.
+* Authorize and deauthorize faculty wallet addresses.
+* Retrieve student information from the blockchain.
 * View recommendation request and approval status.
-* Connect using MetaMask.
+* Connect the application using MetaMask.
+* Interact with Ethereum Sepolia Testnet.
 
-## Smart Contract Details
+## Smart Contract Deployment
 
-**Network:** Ethereum Sepolia
+**Network:** Ethereum Sepolia Testnet
+
+**Chain ID:** 11155111
 
 **Contract Address:**
+
 `0xD9E432b696FD6D18C3f715bD9784D54e469830d1`
 
-**Etherscan:**
+**View Deployed Contract:**
 
 https://sepolia.etherscan.io/address/0xD9E432b696FD6D18C3f715bD9784D54e469830d1
 
@@ -45,25 +55,52 @@ https://sepolia.etherscan.io/address/0xD9E432b696FD6D18C3f715bD9784D54e469830d1
 
 ```text
 lor-dapp/
+│
 ├── contracts/
-│   └── LoR.sol
+│   ├── LoR.sol
+│   └── Lock.sol
+│
 ├── scripts/
 │   └── deploy.js
+│
 ├── test/
-│   └── LoR.js
+│   ├── LoR.js
+│   └── Lock.js
+│
 ├── frontend/
-│   └── src/
-│       ├── contracts/
-│       ├── App.jsx
-│       ├── App.css
-│       └── main.jsx
+│   ├── src/
+│   │   ├── contracts/
+│   │   │   ├── LoR.json
+│   │   │   └── config.js
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   ├── package.json
+│   └── index.html
+│
 ├── screenshots/
+│   ├── deployment.png
+│   ├── dashboard.png
+│   ├── student-registration.png
+│   └── recommendation-request.png
+│
 ├── hardhat.config.js
 ├── package.json
+├── package-lock.json
+├── .env.example
+├── .gitignore
 └── README.md
 ```
 
 ## Installation and Setup
+
+### Prerequisites
+
+* Node.js
+* npm
+* MetaMask Browser Extension
+* Git
+* Ethereum Sepolia Test ETH
 
 ### 1. Clone the Repository
 
@@ -82,12 +119,16 @@ npm install
 
 Create a `.env` file in the project root.
 
+Add the following:
+
 ```env
 SEPOLIA_RPC_URL=YOUR_INFURA_SEPOLIA_RPC_URL
 PRIVATE_KEY=YOUR_TEST_WALLET_PRIVATE_KEY
 ```
 
-Never expose your private key or commit your `.env` file.
+Replace the placeholders with your credentials.
+
+**Security:** Never share or upload your private key or `.env` file to GitHub.
 
 ### 4. Compile Smart Contracts
 
@@ -95,134 +136,87 @@ Never expose your private key or commit your `.env` file.
 npx hardhat compile
 ```
 
-### 5. Run Tests
+### 5. Run Smart Contract Tests
 
 ```bash
 npx hardhat test
 ```
 
-### 6. Deploy to Sepolia
+The project includes automated test cases covering student registration, recommendation requests, faculty authorization, approval, and access control.
+
+**Test Result:** 18 passing tests.
+
+### 6. Deploy Smart Contract to Sepolia
 
 ```bash
 npx hardhat run scripts/deploy.js --network sepolia
 ```
 
-### 7. Run Frontend
+After successful deployment, the contract address will be displayed in the terminal.
 
-Open another terminal:
+### 7. Install Frontend Dependencies
 
 ```bash
 cd frontend
 npm install
+```
+
+### 8. Start React Development Server
+
+```bash
 npm run dev
 ```
 
-Open the local development URL provided by Vite.
+Open the local URL displayed in the terminal, usually:
 
-Connect MetaMask using the Ethereum Sepolia network.
+```text
+http://localhost:5173/
+```
 
-## Tested Functionalities
+Connect MetaMask and select the Ethereum Sepolia network.
+
+## Application Workflow
+
+1. The contract owner deploys the smart contract.
+2. The owner registers student details.
+3. A connected wallet requests a recommendation using the Student ID.
+4. The owner authorizes faculty wallet addresses.
+5. Authorized faculty members can approve recommendation requests.
+6. Student details and recommendation status can be retrieved from the blockchain.
+
+## Testing and Verification
+
+The following functionalities have been implemented and tested:
 
 * Smart contract compilation.
-* Automated Hardhat tests.
+* Automated Hardhat testing.
 * Student registration.
 * Recommendation requests.
 * Student information retrieval.
 * MetaMask wallet connection.
-* Sepolia smart contract deployment.
+* Smart contract deployment on Sepolia.
+
+Faculty authorization and recommendation approval are implemented in the smart contract and frontend.
 
 ## Screenshots
 
-Project screenshots are available in the `screenshots/` directory.
+The `screenshots/` directory contains:
+
+1. Smart contract deployment on Sepolia Etherscan.
+2. Working React frontend dashboard.
+3. Successful student registration.
+4. Successful recommendation request.
 
 ## Security Considerations
 
-* Administrative operations are restricted to the contract owner.
-* Recommendation approval is restricted to authorized approvers.
-* Student information stored on-chain is publicly accessible.
-* Test wallets and dummy student information should be used for demonstration.
-
-## Network Information
-
-Ethereum Sepolia Testnet
-
-Chain ID: 11155111
-
-Block Explorer: https://sepolia.etherscan.io/
+* Only the contract owner can register students and manage faculty authorization.
+* Only authorized approvers can approve recommendation requests.
+* Blockchain transactions are publicly verifiable.
+* Student information stored directly on-chain is publicly accessible.
+* Test wallets and dummy student information are recommended for demonstration.
 
 ## Author
 
-Badal
+Harbhajan Singh Bhatiya
 
-## License
-
-MIT License
-
-````
-
-One correction before submission: the README describes approval functionality implemented in the contract, not independently verified in your live frontend.
-
----
-
-## Step 5. Run Final Tests
-
-From the project root:
-
-```powershell
-npx hardhat test
-````
-
-You previously got 18 passing tests. Confirm that result again.
-
-Then check Git:
-
-```powershell
-git status
-```
-
-## Step 6. Push to GitHub
-
-If you haven't created a repository yet:
-
-1. Open [GitHub](https://github.com/?utm_source=chatgpt.com).
-2. Click New Repository.
-3. Repository name: `LoR-DApp`.
-4. Choose Public.
-5. Don't initialize with a README (you already have one).
-6. Create repository.
-
-Back in VS Code terminal:
-
-```powershell
-git init
-git add .
-git commit -m "Badal - LoR DApp"
-git branch -M main
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
-
-Replace the repository URL with your actual GitHub repository URL.
-
-**Before `git add .`, verify that `.env` is ignored. Never push private keys.**
-
----
-
-### Final Submission Checklist
-
-| Requirement             | Status                    |
-| ----------------------- | ------------------------- |
-| Solidity smart contract | Complete                  |
-| Hardhat testing         | 18 tests passed           |
-| Sepolia deployment      | Complete                  |
-| Etherscan link          | Available                 |
-| React frontend          | Complete                  |
-| MetaMask integration    | Complete                  |
-| Student registration    | Tested                    |
-| Recommendation request  | Tested                    |
-| Student details         | Tested                    |
-| Faculty approval        | Implemented, not verified |
-| Screenshots             | To organize               |
-| README                  | To add                    |
-| GitHub repository       | Pending                   |
-
+Engineering Student – Artificial Intelligence and Data Science
