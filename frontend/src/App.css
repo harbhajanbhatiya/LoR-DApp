@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.navbar {
+  height: 85px;
+  background: #ffffff;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  background: #5146e5;
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.brand h2 {
+  font-size: 21px;
+}
+
+.brand small {
+  color: #777;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: #5146e5;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #4035c9;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.connect-btn {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 35px 25px;
+}
+
+.hero {
+  background: linear-gradient(120deg, #25215f, #5146e5);
+  color: white;
+  padding: 65px 50px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+}
+
+.tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #c6c2ff;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin: 18px 0;
+}
+
+.hero p {
+  max-width: 600px;
+  line-height: 1.7;
+  color: #e0dfff;
+  margin-bottom: 20px;
+}
+
+.hero a {
+  color: white;
+  font-weight: 600;
+}
+
+.message {
+  background: #e8eaff;
+  color: #3930a8;
+  padding: 15px;
+  border-radius: 9px;
+  margin-bottom: 25px;
+  overflow-wrap: anywhere;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #e9eaf0;
+}
+
+.stat-card span {
+  color: #777;
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e9eaf0;
+  padding: 28px;
+  border-radius: 14px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #5146e5;
+}
+
+.card button {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+.danger-btn {
+  background: #dc3545;
+}
+
+.danger-btn:hover {
+  background: #b52a37;
+}
+
+.student-result {
+  background: white;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.student-result h2 {
+  margin-bottom: 20px;
+}
+
+.student-details p {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  overflow-wrap: anywhere;
+}
+
+.approved {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.pending {
+  color: #d97706;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 10px;
+  color: #777;
+}
+
+footer small {
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .stats,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 40px 25px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .brand small {
+    display: none;
+  }
+}
